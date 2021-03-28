@@ -1,1 +1,13 @@
-<h1>Tasks</h1>
+<h1>My tasks</h1>
+<h3>welcome to the task manager</h3>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li class="p-3">
+      <%= link_to task.title, task_path(task)%>
+      <%= link_to 'Delete this task', task_path(task), method: :delete, data: {confirm: "Are you sure?"} %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add a new task', tasks_new_path %>
